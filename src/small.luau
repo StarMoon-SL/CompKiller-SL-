@@ -1,10 +1,3 @@
---[[
-	Compkiller - Mini UI
-	
-	Author: 4lpaca
-	Github: https://github.com/4lpaca-pin/CompKiller
-]]
-
 export type cloneref = (target: Instance) -> Instance;
 
 local cloneref: cloneref = cloneref or function(f) return f end;
