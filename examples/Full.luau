@@ -1,38 +1,23 @@
---[[
-		Example Compkiller UI
-	
-	Author: 4lpaca
-	
-	Press Left Alt to open / close
-]]
-
 local Compkiller = loadstring(game:HttpGet("https://raw.githubusercontent.com/4lpaca-pin/CompKiller/refs/heads/main/src/source.luau"))();
 
-
--- Create Notification --
 local Notifier = Compkiller.newNotify();
 
--- Create Config Mamager --
 local ConfigManager = Compkiller:ConfigManager({
 	Directory = "Compkiller-UI",
 	Config = "Example-Configs"
 });
 
--- Loading UI (Icon <string> , Duration <number>) --
 Compkiller:Loader("rbxassetid://120245531583106" , 1.5).yield();
 
--- Creating Window --
 local MenuKey = "LeftAlt";
 
 local Window = Compkiller.new({
 	Name = "COMPKILLER",
 	Keybind = MenuKey,
 	Logo = "rbxassetid://120245531583106",
-	Scale = Compkiller.Scale.Window, -- Leave blank if you want automatic scale [PC, Mobile].
+	Scale = Compkiller.Scale.Window,
 	TextSize = 15,
 });
-
--- User Setting --
 
 local UserSettings = Window.UserSettings:Create();
 
@@ -90,8 +75,6 @@ UserSettings:AddDropdown({
 	end,
 });
 
--- Notification --
-
 Notifier.new({
 	Title = "Notification",
 	Content = "Thank you for use this script!",
@@ -99,7 +82,6 @@ Notifier.new({
 	Icon = "rbxassetid://120245531583106"
 });
 
--- Watermark --
 local Watermark = Window:Watermark();
 
 Watermark:AddText({
@@ -128,19 +110,16 @@ Watermark:AddText({
 	Text = Compkiller.Version,
 });
 
--- Creating Tab Category --
 Window:DrawCategory({
 	Name = "Example"
 });
 
--- Creating Tab --
 local NormalTab = Window:DrawTab({
 	Name = "Example Tab",
 	Icon = "apple",
 	EnableScrolling = true
 });
 
--- Creating Section --
 local NormalSection = NormalTab:DrawSection({
 	Name = "Section",
 	Position = 'left'	
@@ -148,27 +127,24 @@ local NormalSection = NormalTab:DrawSection({
 
 local Toggle = NormalSection:AddToggle({
 	Name = "Toggle",
-	Flag = "Toggle_Example", -- Leave it blank will not save to config
+	Flag = "Toggle_Example",
 	Default = false,
 	Callback = print,
 });
 
--- Add Keybind To Toggle --
 local Keybind = Toggle.Link:AddKeybind({
 	Default = "E",
 	Flag = "Option_Keybind",
 	Callback = print
 });
 
--- Helper --
 Toggle.Link:AddHelper({
 	Text = "Very cool toggle!"
 })
 
--- Add Option To Toggle --
 local Toggle2 = NormalSection:AddToggle({
 	Name = "Toggle",
-	Flag = "Toggle_Example2", -- Leave it blank will not save to config
+	Flag = "Toggle_Example2",
 	Default = false,
 	Callback = print,
 });
@@ -184,7 +160,7 @@ Option:AddToggle({
 do
 	local Toggle2 = NormalSection:AddToggle({
 		Name = "Risky Feature",
-		Flag = "Toggle_Example5", -- Leave it blank will not save to config
+		Flag = "Toggle_Example5",
 		Default = false,
 		Risky = true,
 		Callback = print,
@@ -273,13 +249,11 @@ local DrawElements = function(Tab,Position)
 			Callback = print,
 		});
 
-		-- Add Keybind To Toggle --
 		local Keybind = Toggle.Link:AddKeybind({
 			Default = "E",
 			Callback = print
 		});
 
-		-- Add Option To Toggle --
 		local Toggle2 = NormalSectionRight:AddToggle({
 			Name = "Toggle",
 			Default = false,
@@ -345,7 +319,6 @@ end;
 
 DrawElements(NormalTab,'right')
 
--- Single Tab --
 local SingleTab = Window:DrawTab({
 	Name = "Single Tab",
 	Icon = "banana",
@@ -354,7 +327,6 @@ local SingleTab = Window:DrawTab({
 
 DrawElements(SingleTab,'left')
 
--- Container Tab --
 local ContainerTab = Window:DrawContainerTab({
 	Name = "Extract Tabs",
 	Icon = "contact",
@@ -368,7 +340,7 @@ local ExtractTab = ContainerTab:DrawTab({
 local SingleExtractTab = ContainerTab:DrawTab({
 	Name = "Tab 2",
 	Type = "Single",
-	EnableScrolling = true, -- this will make tab can scrolling (recommend)
+	EnableScrolling = true,
 });
 
 DrawElements(ExtractTab,"left");
@@ -556,7 +528,6 @@ ThemeTab:DrawSection({
 	end,
 })
 
--- Creating Config Tab --
 local ConfigUI = Window:DrawConfig({
 	Name = "Config",
 	Icon = "folder",
