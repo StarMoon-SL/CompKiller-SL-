@@ -28,3 +28,4 @@ Compkiller:_GetIcon(<name : String> , true) -> Rbx AssetId : String
 ```lua
 Compkiller:_RandomString() -> CK=............. : String
 ```
+We will continue to optimize in the future
