@@ -1,5 +1,5 @@
 # CompKiller UI Document
-
+For the complete example, go to the sample files
 ## Using Library
 ```lua
 local Compkiller = loadstring(game:HttpGet("https://raw.githubusercontent.com/4lpaca-pin/CompKiller/refs/heads/main/src/source.luau"))();
